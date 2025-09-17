@@ -198,7 +198,140 @@ a:hover {
     border-radius: 20px 20px 0 0;
 }
 
-/* ----- 4. Utilities ----- */
+/* ----- 4. Image Styles ----- */
+
+/* Basic responsive image rule */
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* Common style for all cat images */
+.cat-image {
+    border-radius: 15px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+}
+
+/* Thematic Frame Styles */
+.image-polaroid {
+    background: var(--color-white);
+    padding: 0.8rem 0.8rem 2.5rem 0.8rem;
+    border-radius: 4px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+    transform: rotate(-1deg);
+}
+
+.image-polaroid:hover {
+    transform: rotate(0deg);
+}
+
+.image-frame {
+    padding: 0.8rem;
+    background: var(--color-white);
+    position: relative;
+    border-radius: 25px;
+}
+
+.image-frame::before {
+    content: "";
+    position: absolute;
+    top: -5px; left: -5px; right: -5px; bottom: -5px;
+    background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-secondary) 100%);
+    z-index: -1;
+    border-radius: 30px;
+}
+
+/* Fun Hover Effects & Animations */
+.image-hover-lift:hover {
+    transform: translateY(-7px);
+    box-shadow: 0 12px 20px rgba(0, 0, 0, 0.15);
+}
+
+.image-hover-tilt {
+    transform: rotate(0.5deg);
+}
+
+.image-hover-tilt:hover {
+    transform: rotate(-1.5deg);
+}
+
+.image-hover-zoom {
+    overflow: hidden;
+    border-radius: 15px;
+}
+
+.image-hover-zoom img {
+    transition: transform 0.5s ease;
+    width: 100%;
+}
+
+.image-hover-zoom:hover img {
+    transform: scale(1.08);
+}
+
+.image-hover-spotlight {
+    position: relative;
+    overflow: hidden;
+}
+
+.image-hover-spotlight::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: radial-gradient(circle at center, transparent 40%, rgba(249, 168, 212, 0.3) 100%);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    z-index: 1;
+    pointer-events: none;
+}
+
+.image-hover-spotlight:hover::before {
+    opacity: 1;
+}
+
+/* Special Thematic Filters */
+.filter-warm {
+    filter: brightness(105%) saturate(110%) contrast(95%);
+}
+
+.filter-dreamy {
+    filter: brightness(105%) contrast(90%) saturate(80%) blur(0.4px);
+}
+
+.filter-playful {
+    filter: saturate(135%) contrast(110%);
+}
+
+.cat-image {
+    transition: filter 0.4s ease;
+}
+
+.cat-image:hover {
+    filter: saturate(120%) brightness(102%);
+}
+
+/* Shape Variations */
+.image-circle {
+    border-radius: 50% !important;
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+}
+
+.image-squircle {
+    border-radius: 25% !important;
+}
+
+.image-kitten-ears {
+    clip-path: polygon(
+        50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%
+    );
+    /* Fallback for older browsers */
+    border-radius: 30% 30% 50% 50% / 30% 30% 70% 70%;
+}
+
+/* ----- 5. Utilities ----- */
 .text-center {
     text-align: center;
 }
@@ -212,7 +345,7 @@ a:hover {
     font-size: 1.2rem;
 }
 
-/* ----- 5. Responsive Design ----- */
+/* ----- 6. Responsive Design ----- */
 @media (max-width: 768px) {
     h1 {
         font-size: 2.2rem;
@@ -225,5 +358,10 @@ a:hover {
 
     .gallery {
         grid-template-columns: 1fr;
+    }
+    
+    /* Adjust image frames on mobile */
+    .image-frame::before {
+        top: -3px; left: -3px; right: -3px; bottom: -3px;
     }
 }

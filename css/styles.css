@@ -50,6 +50,26 @@ h2 {
     padding-bottom: 0.5rem;
     display: inline-block;
 }
+/* Description List Styling */
+dl {
+    font-family: var(--font-body); /* Uses the same font as the rest of the site */
+    margin: 1.5rem 0;
+    line-height: 1.6;
+}
+
+dt {
+    font-weight: bold;
+    color: var(--color-primary); /* Uses the pink color for terms */
+    margin-top: 1rem;
+    font-size: 1.1em;
+}
+
+dd {
+    font-weight: normal;
+    margin-left: 1.5rem;
+    margin-bottom: 1rem;
+    color: var(--color-dark); /* Uses the dark gray color for descriptions */
+}
 
 a {
     color: var(--color-secondary);

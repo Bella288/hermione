@@ -21,6 +21,17 @@
     padding: 0;
     box-sizing: border-box;
 }
+.paw {
+    font-size: 1.5rem;
+    opacity: 0.3; /* Default to faint/empty */
+    margin-right: 0.2rem;
+}
+
+.paw.filled {
+    opacity: 1; /* Filled paw */
+}
+
+
 
 body {
     font-family: var(--font-body);

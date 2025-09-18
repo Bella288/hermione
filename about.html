@@ -77,8 +77,14 @@
         </section>
 
         <section class="history">
-            <h2>My Story</h2>
-            <p><!-- Tell the story of how your cat came to be with you --></p>
+            <h2>How We got Hermione</h2>
+            <p>One day, after my hair appointment, I went over to the pet store nextdoor. I went in and saw a kitten, and ran back to tell my mom.</p>
+            <p>My mom came to see the cat, and we wanted to adopt him (his name was Bugs). It turned out that somebody adopted him already.</p>
+            <p>So, we looked on our local Animal Care and Control website, and we found Hermione. So, we went to the PetSmart</p>
+            <p>where she was located, and we got to hold her. We sent in a request to adopt her, and we got the approval!</p>
+            <p>The next day, we finally got to pick her up. She was only 3 months old at that point. When we brought</p>
+            <p>her home, she was very scared. Thankfully, she got used to her new home after a few days. Then, she became</p>
+            <p>her playful self. She now spends her time playing, going crazy, and pestering her brother, Barley.</p>
         </section>
     </main>
 
@@ -91,6 +97,10 @@
             // Hermione's birthday (March 21, 2025)
             const birthday = new Date(2025, 2, 21); // Note: months are 0-indexed in JS (0=Jan, 11=Dec)
             const today = new Date();
+            
+            // Check if today is her birthday
+            const isBirthday = today.getMonth() === birthday.getMonth() && 
+                               today.getDate() === birthday.getDate();
             
             // Calculate age in months
             let months = (today.getFullYear() - birthday.getFullYear()) * 12;
@@ -115,6 +125,11 @@
                 } else {
                     ageText = `${years} year${years !== 1 ? 's' : ''} and ${remainingMonths} month${remainingMonths !== 1 ? 's' : ''} old`;
                 }
+            }
+            
+            // Add birthday cake if it's her birthday
+            if (isBirthday) {
+                ageText += ' 🎂';
             }
             
             // Update the page with the calculated age

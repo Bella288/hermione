@@ -29,7 +29,7 @@
                 <p><!-- Write about your cat's background --></p>
                 <ul class="facts-list">
                     <li><strong>Breed:</strong> American Shorthair</li>
-                    <li><strong>Age:</strong> <!-- Enter age --></li>
+                    <li><strong>Age:</strong> <span id="cat-age">Calculating...</span></li>
                     <li><strong>Color:</strong> Tortiseshell</li>
                     <li><strong>Weight:</strong> 6lbs</li>
                     <li><strong>Birthday:</strong> March 21, 2025</li>
@@ -85,5 +85,41 @@
     <footer class="site-footer">
         <p>Made with &hearts; by Bella Lawrence</p>
     </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Hermione's birthday (March 21, 2025)
+            const birthday = new Date(2025, 2, 21); // Note: months are 0-indexed in JS (0=Jan, 11=Dec)
+            const today = new Date();
+            
+            // Calculate age in months
+            let months = (today.getFullYear() - birthday.getFullYear()) * 12;
+            months -= birthday.getMonth();
+            months += today.getMonth();
+            
+            // Adjust if current day is before birthday
+            if (today.getDate() < birthday.getDate()) {
+                months--;
+            }
+            
+            // Format age for display
+            let ageText;
+            if (months < 12) {
+                ageText = `${months} month${months !== 1 ? 's' : ''} old`;
+            } else {
+                const years = Math.floor(months / 12);
+                const remainingMonths = months % 12;
+                
+                if (remainingMonths === 0) {
+                    ageText = `${years} year${years !== 1 ? 's' : ''} old`;
+                } else {
+                    ageText = `${years} year${years !== 1 ? 's' : ''} and ${remainingMonths} month${remainingMonths !== 1 ? 's' : ''} old`;
+                }
+            }
+            
+            // Update the page with the calculated age
+            document.getElementById('cat-age').textContent = ageText;
+        });
+    </script>
 </body>
 </html>

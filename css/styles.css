@@ -39,7 +39,7 @@ div[id="photos"]:target {
     transition: all 0.3s ease;
     box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
 }
-div[id="intro"]:target {
+section[id="intro"]:target {
     border: 5px solid var(--color-secondary);
     padding: 15px;
     background-color: rgb(138,43,226,0.1);
@@ -48,7 +48,7 @@ div[id="intro"]:target {
     transition: all 0.3s ease;
     box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
 }
-div[id="highlights"]:target {
+section[id="highlights"]:target {
     border: 5px solid var(--color-secondary);
     padding: 15px;
     background-color: rgb(138,43,226,0.1);

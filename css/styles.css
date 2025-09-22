@@ -22,7 +22,7 @@
     box-sizing: border-box;
 }
 div[id^="trait."]:target {
-    border: 3px solid var(--color-secondary);
+    border: 5px solid var(--color-secondary);
     padding: 15px;
     background-color: rgb(138,43,226,0.1);
     border-radius: 15px;
@@ -31,7 +31,7 @@ div[id^="trait."]:target {
     box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
 }
 div[id^="ratings"]:target {
-    border: 3px solid var(--color-secondary);
+    border: 5px solid var(--color-secondary);
     padding: 15px;
     background-color: rgb(138,43,226,0.1);
     border-radius: 15px;
